@@ -23,8 +23,9 @@ const FormComponent = ({ addTodo }) => {
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder='What needs to be done?'
+          className='rounded-0'
         />
-        <Button variant='secondary' type='submit'>
+        <Button variant='secondary' type='submit' className='rounded-0'>
           Add
         </Button>
       </div>

@@ -1,21 +1,23 @@
 import { ListGroup, Form } from 'react-bootstrap';
 
 const ListComponent = ({ todos, switchTodo }) => {
+  const needOverflow = todos.length > 7;
+
   return (
-    <ListGroup>
-      {todos.map((todo) => (
-        <ListGroup.Item key={todo.id}>
-          <Form.Check
-            type='checkbox'
-            inline
-            label={todo.text}
-            className='mr-2'
-            checked={todo.completed}
-            onChange={() => switchTodo(todo.id)}
-          />
-        </ListGroup.Item>
-      ))}
-    </ListGroup>
+    <div className={needOverflow ? 'overflow-auto mh-20 scrollbar scrollbar-grey' : ''}>
+      <ListGroup class={needOverflow ? 'force-overflow' : ''}>
+        {todos.map((todo) => (
+          <ListGroup.Item key={todo.id} className='rounded-0'>
+            <Form.Check
+              type='checkbox'
+              label={todo.text}
+              checked={todo.completed}
+              onChange={() => switchTodo(todo.id)}
+            />
+          </ListGroup.Item>
+        ))}
+      </ListGroup>
+    </div>
   );
 };
 
