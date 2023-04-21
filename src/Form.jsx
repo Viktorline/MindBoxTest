@@ -17,18 +17,17 @@ const FormComponent = ({ addTodo }) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Form.Group controlId='todoForm'>
-        <Form.Label>Enter a new to-do item:</Form.Label>
+      <div className='input-group'>
         <Form.Control
           type='text'
           value={text}
           onChange={(e) => setText(e.target.value)}
-          placeholder='Enter a new to-do item'
+          placeholder='What needs to be done?'
         />
-      </Form.Group>
-      <Button variant='primary' type='submit'>
-        Add
-      </Button>
+        <Button variant='secondary' type='submit'>
+          Add
+        </Button>
+      </div>
     </Form>
   );
 };

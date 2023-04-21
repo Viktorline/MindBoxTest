@@ -10,16 +10,21 @@ function App() {
     setTodos([...todos, todo]);
   };
 
-  const deleteTodo = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
+  const switchTodo = (id) => {
+    setTodos(
+      todos.map((todo) => (todo.id === id ? { ...todo, completed: !todo.completed } : todo))
+    );
   };
-
+  console.log(todos);
   return (
-    <Container>
-      <Row>
-        <Col md={{ span: 6, offset: 3 }}>
+    <Container className='my-4'>
+      <Row
+        className='justify-content-center align-items-center'
+        // style={{ border: '2px solid black' }}
+      >
+        <Col md={6}>
           <FormComponent addTodo={addTodo} />
-          <ListComponent todos={todos} deleteTodo={deleteTodo} />
+          <ListComponent todos={todos} switchTodo={switchTodo} />
         </Col>
       </Row>
     </Container>

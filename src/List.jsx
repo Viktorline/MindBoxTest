@@ -1,14 +1,18 @@
-import { ListGroup, Button } from 'react-bootstrap';
+import { ListGroup, Form } from 'react-bootstrap';
 
-const ListComponent = ({ todos, deleteTodo }) => {
+const ListComponent = ({ todos, switchTodo }) => {
   return (
     <ListGroup>
       {todos.map((todo) => (
         <ListGroup.Item key={todo.id}>
-          {todo.text}
-          <Button variant='danger' className='float-right' onClick={() => deleteTodo(todo.id)}>
-            Delete
-          </Button>
+          <Form.Check
+            type='checkbox'
+            inline
+            label={todo.text}
+            className='mr-2'
+            checked={todo.completed}
+            onChange={() => switchTodo(todo.id)}
+          />
         </ListGroup.Item>
       ))}
     </ListGroup>
