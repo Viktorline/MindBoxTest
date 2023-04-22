@@ -7,6 +7,7 @@ import { useState } from 'react';
 
 function App() {
   const [todos, setTodos] = useState([]);
+  const [filter, setFilter] = useState('all');
 
   const addTodo = (todo) => {
     setTodos([...todos, todo]);
@@ -18,14 +19,39 @@ function App() {
     );
   };
 
+  const switchFilter = (filterType) => {
+    console.log(filterType);
+    setFilter(filterType);
+  };
+
+  const filteredTodos = todos.filter((todo) => {
+    if (filter === 'active') return !todo.completed;
+    if (filter === 'completed') return todo.completed;
+    return true;
+  });
+
+  const clearCompleted = () => {
+    setTodos(todos.filter((todo) => !todo.completed));
+  };
+
   return (
-    <Container className='d-flex flex-column' style={{ border: '2px solid black' }}>
+    <Container
+      className='d-flex flex-column'
+      // style={{ border: '2px solid black' }}
+    >
       <Row className='justify-content-center align-items-center'>
         <Col xs={12} sm={10} md={8} lg={6} xl={5}>
           <FormComponent addTodo={addTodo} />
           <ListGroup>
-            <ListComponent todos={todos} switchTodo={switchTodo} />
-            {todos.length > 0 ? <FooterComponent todos={todos} /> : null}
+            <ListComponent todos={filteredTodos} switchTodo={switchTodo} />
+            {todos.length > 0 ? (
+              <FooterComponent
+                todos={todos}
+                filter={filter}
+                switchFilter={switchFilter}
+                clearCompleted={clearCompleted}
+              />
+            ) : null}
           </ListGroup>
         </Col>
       </Row>
