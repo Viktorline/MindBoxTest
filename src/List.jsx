@@ -1,11 +1,9 @@
 import { ListGroup, Form } from 'react-bootstrap';
 
 const ListComponent = ({ todos, switchTodo }) => {
-  const needOverflow = todos.length > 7;
-
   return (
-    <div className={needOverflow ? 'overflow-auto mh-20 scrollbar scrollbar-grey' : ''}>
-      <ListGroup className={needOverflow ? 'force-overflow' : ''}>
+    <div className='overflow-auto mh-20 scrollbar scrollbar-grey'>
+      <ListGroup className='force-overflow'>
         {todos.map((todo) => (
           <ListGroup.Item key={todo.id} className='rounded-0'>
             <Form.Check
@@ -14,7 +12,7 @@ const ListComponent = ({ todos, switchTodo }) => {
                 <span
                   className={`${
                     todo.completed ? 'text-decoration-line-through text-secondary' : ''
-                  }`}
+                  } text-break`}
                 >
                   {todo.text}
                 </span>

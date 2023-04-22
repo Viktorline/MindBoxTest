@@ -1,5 +1,6 @@
 import { Container, Row, Col, ListGroup } from 'react-bootstrap';
 import FormComponent from './Form';
+import Logo from './Logo';
 import ListComponent from './List';
 import FooterComponent from './Footer';
 
@@ -20,7 +21,6 @@ function App() {
   };
 
   const switchFilter = (filterType) => {
-    console.log(filterType);
     setFilter(filterType);
   };
 
@@ -31,14 +31,13 @@ function App() {
   });
 
   const clearCompleted = () => {
+    if (filter === 'completed') setFilter('all');
     setTodos(todos.filter((todo) => !todo.completed));
   };
 
   return (
-    <Container
-      className='d-flex flex-column'
-      // style={{ border: '2px solid black' }}
-    >
+    <Container className='d-flex flex-column'>
+      <Logo />
       <Row className='justify-content-center align-items-center'>
         <Col xs={12} sm={10} md={8} lg={6} xl={5}>
           <FormComponent addTodo={addTodo} />

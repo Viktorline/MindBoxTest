@@ -2,12 +2,14 @@ import React from 'react';
 import { Row, Col, ListGroup, Button } from 'react-bootstrap';
 
 const FooterComponent = ({ todos, filter, switchFilter, clearCompleted }) => {
+  const remainingTodosLength = todos.filter((todo) => !todo.completed).length;
+
   return (
     <ListGroup.Item>
       <Row className='d-flex flex-row justify-content-between align-items-center'>
         <Col className='p-1'>
           <div className='text-secondary'>
-            <small>{`${todos.length} items left`}</small>
+            <small>{`${remainingTodosLength} items left`}</small>
           </div>
         </Col>
         <Col>
