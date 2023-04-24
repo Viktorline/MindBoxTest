@@ -2,6 +2,8 @@
 
 This repository contains a simple ToDo app built as a part of the frontend intern test task for Mindbox. The application allows you to manage your current to-do list.
 
+https://mind-box-test-five.vercel.app/
+
 ## Features
 
 - Field for entering a new task
