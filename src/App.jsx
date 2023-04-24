@@ -6,7 +6,7 @@ import FooterComponent from './Footer';
 
 import { useState } from 'react';
 
-function App() {
+const App = () => {
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState('all');
 
@@ -31,7 +31,7 @@ function App() {
   });
 
   const clearCompleted = () => {
-    if (filter === 'completed') setFilter('all');
+    if (filter === 'completed' || filter === 'active') setFilter('all');
     setTodos(todos.filter((todo) => !todo.completed));
   };
 
@@ -56,6 +56,6 @@ function App() {
       </Row>
     </Container>
   );
-}
+};
 
 export default App;

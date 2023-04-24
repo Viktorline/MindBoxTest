@@ -16,7 +16,7 @@ const FormComponent = ({ addTodo }) => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} role='form'>
       <div className='input-group'>
         <Form.Control
           type='text'

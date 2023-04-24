@@ -2,7 +2,7 @@ import { ListGroup, Form } from 'react-bootstrap';
 
 const ListComponent = ({ todos, switchTodo }) => {
   return (
-    <div className='overflow-auto mh-20 scrollbar scrollbar-grey'>
+    <div className='overflow-auto mh-301 scrollbar scrollbar-grey'>
       <ListGroup className='force-overflow'>
         {todos.map((todo) => (
           <ListGroup.Item key={todo.id} className='rounded-0'>
