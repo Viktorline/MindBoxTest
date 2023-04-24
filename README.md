@@ -15,6 +15,8 @@ This repository contains a simple ToDo app built as a part of the frontend inter
 
 ## Testing
 
+[![Github Actions](https://github.com/Viktorline/MindboxTest/actions/workflows/main.yml/badge.svg)](https://github.com/Viktorline/MindboxTest/actions/workflows/main.yml/badge.svg)
+
 The key functionality of the application is covered by tests using Jest and React Testing Library.
 
 ## Getting Started
